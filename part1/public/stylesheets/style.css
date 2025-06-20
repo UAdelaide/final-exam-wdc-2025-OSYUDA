@@ -11,6 +11,9 @@ a {
 }
 
 #refresh-btn {
-  margin-top: 500px;
-  margin-left: 900px;
+  position: absolute;
+  top: 700px;
+  left: 1000px;
+  font-size: 6px;
+  padding: 2px 4px;
 }
