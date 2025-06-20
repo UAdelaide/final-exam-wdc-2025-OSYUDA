@@ -12,7 +12,7 @@ const db = mysql.createPool({
 // 1.6/api/dogs
 app.get('/api/dogs', async (req, res) => {
     try {
-      const [rows] = await db.query(`
+      const [dogs] = await db.query(`
         SELECT
           Dogs.name AS dog_name,
           Dogs.size,
@@ -20,7 +20,7 @@ app.get('/api/dogs', async (req, res) => {
         FROM Dogs
         JOIN Users ON Dogs.owner_id = Users.user_id
       `);
-      res.status(200).json(rows);
+      res.status(200).json(dogs);
     } catch (err) {
       res.status(500).json({ error: 'Unable to fetch dogs data from database' });
     }
