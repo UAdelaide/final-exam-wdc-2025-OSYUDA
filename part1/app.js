@@ -1,4 +1,4 @@
-//app.js for Part1 API
+//app.js for Part1 API Endpoints
 const express = require('express');
 const mysql = require('mysql2/promise');
 const app = express();
