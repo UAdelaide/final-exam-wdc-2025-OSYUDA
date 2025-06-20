@@ -144,7 +144,7 @@ const db = mysql.createPool({
 
 (async () => {
   try {
-    // 建表
+
     await db.query(`
       CREATE TABLE IF NOT EXISTS Users (
         user_id INT AUTO_INCREMENT PRIMARY KEY,
@@ -187,7 +187,6 @@ const db = mysql.createPool({
       `);
     }
 
-    // 插入狗狗
     const [dogs] = await db.query('SELECT COUNT(*) AS count FROM Dogs');
     if (dogs[0].count === 0) {
       await db.query(`
@@ -201,7 +200,6 @@ const db = mysql.createPool({
       `);
     }
 
-    // 插入遛狗请求
     const [requests] = await db.query('SELECT COUNT(*) AS count FROM WalkRequests');
     if (requests[0].count === 0) {
       await db.query(`
@@ -219,7 +217,7 @@ const db = mysql.createPool({
   }
 })();
 
-// /api/dogs
+// 1.6/api/dogs
 app.get('/api/dogs', async (req, res) => {
   try {
     const [dogs] = await db.query(`
