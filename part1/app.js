@@ -1,10 +1,10 @@
-//app.js for Part1 API Endpoints
+// app.js for Part1 API Endpoints
 const express = require('express');
 const mysql = require('mysql2/promise');
 const app = express();
 const PORT = 3000;
 
-//Middleware
+// Middleware
 app.use(express.json());
 
 const db = mysql.createPool({
