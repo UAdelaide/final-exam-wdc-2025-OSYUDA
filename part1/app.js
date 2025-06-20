@@ -14,6 +14,8 @@ const db = mysql.createPool({
     database: 'DogWalkService'
   });
 
+
+
 // 1.6/api/dogs
 app.get('/api/dogs', async (req, res) => {
     try {
