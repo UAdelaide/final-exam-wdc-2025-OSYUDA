@@ -1,4 +1,3 @@
-/*
 // app.js for Part1 API Endpoints
 const express = require('express');
 const mysql = require('mysql2/promise');
@@ -122,4 +121,3 @@ app.get('/api/walkers/summary', async (req, res) => {
 app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
   });
-*/
