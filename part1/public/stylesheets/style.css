@@ -1,19 +1,18 @@
 body {
   padding: 50px;
-  font-size: 9px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-  background-color: #222222;
-  color: #ffffff;
+  font-size: 7px;
+  font-family: "Comic Sans MS", cursive, sans-serif;
+  background-color: #eeeeee;
+  color: #eeeeee;
 }
 
 a {
-  color: #00B7FF;
+  color: #eeeeee;
 }
 
 #refresh-btn {
-  position: absolute;
-  top: 700px;
-  left: 1000px;
+  margin-top: 400px;
+  margin-left: 900px;
   font-size: 6px;
   padding: 2px 4px;
 }

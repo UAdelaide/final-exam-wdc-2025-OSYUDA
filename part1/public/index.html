@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dog</title>
+  <title>Dog of the Day Page</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
@@ -10,7 +10,7 @@
 <body>
   <div id="app">
     <h1>D.V.I.R.T. Generator Interface</h1>
-    <p>🐾 Click the semantic unit converter to retrieve visual stimulus</p>
+    <p>Click the semantic unit converter to retrieve visual stimulus</p>
     <img :src="imageUrl" alt="" width="300" height="300" />
     <br />
     <button id="refresh-btn" v-on:click="getDog">🔁</button>
