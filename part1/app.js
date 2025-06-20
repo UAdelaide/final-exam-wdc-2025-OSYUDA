@@ -67,7 +67,8 @@ app.get('/api/walkers/summary', async (req, res) => {
     } catch (err) {
       res.status(500).json({ error: 'Unable to fetch walker summaries' });
     }
-  });// ✅ 第四步：启动服务器
-  app.listen(PORT, () => {
+  });
+
+app.listen(PORT, () => {
     console.log(`Server is running at http://localhost:${PORT}`);
   });
