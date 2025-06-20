@@ -5,6 +5,7 @@ const app = express();
 const PORT = 3000;
 
 //Middleware
+app.use(express.json());
 
 const db = mysql.createPool({
     host: 'localhost',
