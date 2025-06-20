@@ -2,28 +2,25 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Dog of the Day Page</title>
+  <title>Dog</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
   <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
 
 <body>
   <div id="app">
-    <h1>Dog of the Day</h1>
-    <p>Random Dog Image from Dog API:</p>
-    <img :src="imageUrl" alt="Dog" width="300" height="300" />
+    <h1>D.V.I.R.T. Generator Interface</h1>
+    <p>🐾 Click the semantic unit converter to retrieve visual stimulus</p>
+    <img :src="imageUrl" alt="" width="300" height="300" />
     <br />
-    <button id="refresh-btn" v-on:click="getDog">Load Another</button>
+    <button id="refresh-btn" v-on:click="getDog">🔁</button>
   </div>
 
   <script>
     const { createApp } = Vue;
-
     createApp({
       data() {
-        return {
-          imageUrl: ''
-        };
+        return { imageUrl: '' };
       },
       methods: {
         async getDog() {
@@ -32,12 +29,12 @@
             const data = await response.json();
             this.imageUrl = data.message;
           } catch (error) {
-            console.error("Failed to fetch dog image", error);
+            console.error("error fetching dog", error);
           }
         }
       },
       mounted() {
-        this.getDog(); // Load on page load
+        this.getDog();
       }
     }).mount('#app');
   </script>
