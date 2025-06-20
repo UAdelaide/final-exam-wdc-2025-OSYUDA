@@ -5,6 +5,6 @@ const PORT = 3000;
 const db = mysql.createPool({
     host: 'localhost',
     user: 'root',
-    password: '',           // ← 根据你设置写密码
+    password: '',
     database: 'DogWalkService'
   });
