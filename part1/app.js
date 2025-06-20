@@ -34,11 +34,11 @@ const db = mysql.createPool({
         await db.query(`
           INSERT INTO Dogs (owner_id, name, size)
           VALUES
-          ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
-  ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
-  ((SELECT user_id FROM Users WHERE username = 'bowen'), 'Bagel', 'small'),
-  ((SELECT user_id FROM Users WHERE username = 'bowen'), 'Flash', 'large'),
-  ((SELECT user_id FROM Users WHERE username = 'pite'), 'Cake', 'medium');
+            ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
+            ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
+            ((SELECT user_id FROM Users WHERE username = 'bowen'), 'Bagel', 'small'),
+            ((SELECT user_id FROM Users WHERE username = 'bowen'), 'Flash', 'large'),
+            ((SELECT user_id FROM Users WHERE username = 'pite'), 'Cake', 'medium');
         `);
       }
 
