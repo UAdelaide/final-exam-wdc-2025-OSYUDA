@@ -44,6 +44,6 @@ app.get('/api/walkrequests/open', async (req, res) => {
       `);
       res.status(200).json(rows);
     } catch (err) {
-      res.status(500).json({ error: 'Failed to fetch open walk requests' });
+      res.status(500).json({ error: 'Unable to fetch open walk requests' });
     }
   });
