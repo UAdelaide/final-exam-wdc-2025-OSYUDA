@@ -78,7 +78,7 @@ app.get('/api/dogs', async (req, res) => {
 // 1.7/api/walkrequests/open
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
-      const [insertrequests] = await db.query(`
+      const [requests] = await db.query(`
         SELECT
           WalkRequests.request_id,
           Dogs.name AS dog_name,
@@ -91,7 +91,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
         JOIN Users ON Dogs.owner_id = Users.user_id
         WHERE WalkRequests.status = 'open'
       `);
-      res.status(200).json(insertrequests);
+      res.status(200).jsonrequests);
     } catch (err) {
       res.status(500).json({ error: 'Unable to fetch open walk requests' });
     }
