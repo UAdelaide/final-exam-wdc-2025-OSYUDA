@@ -42,7 +42,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
         JOIN Users ON Dogs.owner_id = Users.user_id
         WHERE WalkRequests.status = 'open'
       `);
-      res.status(200).json(rows);
+      res.status(200).json(requests);
     } catch (err) {
       res.status(500).json({ error: 'Unable to fetch open walk requests' });
     }
@@ -51,7 +51,7 @@ app.get('/api/walkrequests/open', async (req, res) => {
 // 1.8 /api/walkers/summary
 app.get('/api/walkers/summary', async (req, res) => {
     try {
-      const [rows] = await db.query(`
+      const [summary] = await db.query(`
         SELECT
           Users.username AS walker_username,
           COUNT(WalkRatings.rating_id) AS total_ratings,
@@ -63,8 +63,8 @@ app.get('/api/walkers/summary', async (req, res) => {
         WHERE Users.role = 'walker'
         GROUP BY Users.user_id
       `);
-      res.status(200).json(rows);
+      res.status(200).json(summary);
     } catch (err) {
-      res.status(500).json({ error: 'Failed to fetch walker summaries' });
+      res.status(500).json({ error: 'Unable to fetch walker summaries' });
     }
   });
