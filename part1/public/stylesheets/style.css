@@ -11,8 +11,12 @@ a {
 }
 
 #refresh-btn {
-  margin-top: 400px;
-  margin-left: 900px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
   font-size: 6px;
   padding: 2px 4px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
 }
