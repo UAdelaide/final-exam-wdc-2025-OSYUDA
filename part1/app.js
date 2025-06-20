@@ -118,8 +118,6 @@ app.get('/api/walkers/summary', async (req, res) => {
     }
   });
 
-/* app.listen(PORT, () => {
+app.listen(PORT, () => {
     console.log(`Server running on http://localhost:${PORT}`);
-  }); */
-
-module.exports = app;
+  });
