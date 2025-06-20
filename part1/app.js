@@ -54,7 +54,7 @@ const db = mysql.createPool({
         `);
       }
     } catch (err) {
-      console.error('❌ Error inserting test data:', err);
+      console.error('Error inserting test data:', err);
     }
   })();
 
