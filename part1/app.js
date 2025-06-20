@@ -2,7 +2,7 @@
 const express = require('express');
 const mysql = require('mysql2/promise');
 const app = express();
-const PORT = 3001;
+const PORT = 8000;
 
 // Middleware
 app.use(express.json());
