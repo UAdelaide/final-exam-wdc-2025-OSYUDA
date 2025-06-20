@@ -19,19 +19,21 @@ const db = mysql.createPool({
       const [users] = await db.query('SELECT COUNT(*) AS count FROM Users');
       if (users[0].count === 0) {
         await db.query(`
-          INSERT INTO Users (username, email, password_hash, role) VALUES
-          ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-          ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-          ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-          ('bowen', 'bowen@example.com', 'hashed122', 'walker'),
-          ('pite', 'pite@example.com', 'hashed133', 'owner')
+          INSERT INTO Users (username, email, password_hash, role)
+VALUES
+('alice123', 'alice@example.com', 'hashed123', 'owner'),
+('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+('carol123', 'carol@example.com', 'hashed789', 'owner'),
+('bowen', 'bowen@example.com', 'hashed122', 'walker'),
+('pite', 'pite@example.com', 'hashed133', 'owner');
         `);
       }
 
       const [dogs] = await db.query('SELECT COUNT(*) AS count FROM Dogs');
       if (dogs[0].count === 0) {
         await db.query(`
-          INSERT INTO Dogs (owner_id, name, size) VALUES
+          INSERT INTO Dogs (owner_id, name, size)
+          VALUES
           ((SELECT user_id FROM Users WHERE username = 'alice123'), 'Max', 'medium'),
           ((SELECT user_id FROM Users WHERE username = 'carol123'), 'Bella', 'small'),
           ((SELECT user_id FROM Users WHERE username = 'bowen'), 'Bagel', 'small'),
