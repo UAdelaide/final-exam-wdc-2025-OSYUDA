@@ -9,8 +9,8 @@ const db = mysql.createPool({
     database: 'DogWalkService'
   });
 
-
-  app.get('/api/dogs', async (req, res) => {
+// 🔹 第 6 题：/api/dogs
+app.get('/api/dogs', async (req, res) => {
     try {
       const [rows] = await db.query(`
         SELECT
