@@ -41,3 +41,5 @@ app.get('/api/dogs', async (req, res) => {
     res.status(500).json({ error: 'Unable to fetch dogs data from database' });
   }
 });
+
+--
