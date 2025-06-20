@@ -26,7 +26,7 @@ app.get('/api/dogs', async (req, res) => {
     }
   });
 
-// 🔹 第 7 题：/api/walkrequests/open
+// 1.7/api/walkrequests/open
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
       const [rows] = await db.query(`
