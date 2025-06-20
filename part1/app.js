@@ -131,7 +131,6 @@ const mysql = require('mysql2/promise');
 const app = express();
 const PORT = 3000;
 
-// Middleware
 app.use(express.json());
 
 const db = mysql.createPool({
@@ -173,7 +172,6 @@ const db = mysql.createPool({
       );
     `);
 
-    // 插入用户
     const [users] = await db.query('SELECT COUNT(*) AS count FROM Users');
     if (users[0].count === 0) {
       await db.query(`
