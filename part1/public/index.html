@@ -1,45 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Dog of the Day Page</title>
+  <meta charset="UTF-8" />
+  <title>Dog of the Day (Bad Version)</title>
   <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-  <link rel="stylesheet" href="/stylesheets/style.css">
+  <link rel="stylesheet" href="/stylesheets/style.css" />
 </head>
+
 <body>
   <div id="app">
-    <h1>Dog of the Day</h1>
-
-    <!-- 不符合可访问性规则：没有 alt 内容 -->
-    <img :src="imageUrl" width="300" />
-
-    <!-- 不符合运动负荷规则：按钮位置奇怪 -->
-    <button id="refresh-btn" @click="fetchDog">Refresh Dog</button>
-
-    <!-- 不符合认知负荷规则：文字说明太小，信息混乱 -->
-    <p>
-      Here is a randomly selected dog! Maybe it’s called Max, or Bella, or Luna, or not.
-      You never know. This is confusing on purpose. Have fun figuring it out yourself.
-    </p>
+    <h1>🐶 Dog of the Day</h1>
+    <p>Random Dog Image from Dog API:</p>
+    <img :src="imageUrl" alt="Dog" width="300" height="300" />
+    <br />
+    <button id="refresh-btn" v-on:click="getDog">🔁 Load Another</button>
   </div>
 
   <script>
     const { createApp } = Vue;
+
     createApp({
       data() {
         return {
           imageUrl: ''
-        }
+        };
       },
       methods: {
-        async fetchDog() {
-          const res = await fetch('https://dog.ceo/api/breeds/image/random');
-          const data = await res.json();
-          this.imageUrl = data.message;
+        async getDog() {
+          try {
+            const response = await fetch("https://dog.ceo/api/breeds/image/random");
+            const data = await response.json();
+            this.imageUrl = data.message;
+          } catch (error) {
+            console.error("Failed to fetch dog image", error);
+          }
         }
       },
       mounted() {
-        this.fetchDog();
+        this.getDog(); // Load on page load
       }
     }).mount('#app');
   </script>
