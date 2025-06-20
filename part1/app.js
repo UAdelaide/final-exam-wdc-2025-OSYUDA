@@ -42,8 +42,8 @@ const db = mysql.createPool({
         `);
       }
 
-      const [walks] = await db.query('SELECT COUNT(*) AS count FROM WalkRequests');
-      if (walks[0].count === 0) {
+      const [requests] = await db.query('SELECT COUNT(*) AS count FROM WalkRequests');
+      if (requests[0].count === 0) {
         await db.query(`
           INSERT INTO WalkRequests (dog_id, requested_time, duration_minutes, location, status) VALUES
             ((SELECT dog_id FROM Dogs WHERE name = 'Max'), '2025-06-10 08:00:00', 30, 'Parklands', 'open'),
