@@ -78,7 +78,7 @@ app.get('/api/dogs', async (req, res) => {
 // 1.7/api/walkrequests/open
 app.get('/api/walkrequests/open', async (req, res) => {
     try {
-      const [requests] = await db.query(`
+      const [insertrequests] = await db.query(`
         SELECT
           WalkRequests.request_id,
           Dogs.name AS dog_name,
