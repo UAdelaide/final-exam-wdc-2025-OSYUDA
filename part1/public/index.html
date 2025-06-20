@@ -1,15 +1,47 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dog of the Day Page</title>
-    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
-    <link rel="stylesheet" href="/stylesheets/style.css">
+  <meta charset="UTF-8">
+  <title>Dog of the Day Page</title>
+  <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+  <link rel="stylesheet" href="/stylesheets/style.css">
 </head>
 <body>
-    <div id="app">
-        <h1>Dog of the Day</h1>
-        
+  <div id="app">
+    <h1>Dog of the Day</h1>
+
+    <!-- 不符合可访问性规则：没有 alt 内容 -->
+    <img :src="imageUrl" width="300" />
+
+    <!-- 不符合运动负荷规则：按钮位置奇怪 -->
+    <button id="refresh-btn" @click="fetchDog">Refresh Dog</button>
+
+    <!-- 不符合认知负荷规则：文字说明太小，信息混乱 -->
+    <p>
+      Here is a randomly selected dog! Maybe it’s called Max, or Bella, or Luna, or not.
+      You never know. This is confusing on purpose. Have fun figuring it out yourself.
+    </p>
+  </div>
+
+  <script>
+    const { createApp } = Vue;
+    createApp({
+      data() {
+        return {
+          imageUrl: ''
+        }
+      },
+      methods: {
+        async fetchDog() {
+          const res = await fetch('https://dog.ceo/api/breeds/image/random');
+          const data = await res.json();
+          this.imageUrl = data.message;
+        }
+      },
+      mounted() {
+        this.fetchDog();
+      }
+    }).mount('#app');
+  </script>
 </body>
 </html>
