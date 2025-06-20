@@ -20,12 +20,12 @@ const db = mysql.createPool({
       if (users[0].count === 0) {
         await db.query(`
           INSERT INTO Users (username, email, password_hash, role)
-            VALUES
-        ('alice123', 'alice@example.com', 'hashed123', 'owner'),
-        ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
-        ('carol123', 'carol@example.com', 'hashed789', 'owner'),
-        ('bowen', 'bowen@example.com', 'hashed122', 'walker'),
-        ('pite', 'pite@example.com', 'hashed133', 'owner');
+          VALUES
+            ('alice123', 'alice@example.com', 'hashed123', 'owner'),
+            ('bobwalker', 'bob@example.com', 'hashed456', 'walker'),
+            ('carol123', 'carol@example.com', 'hashed789', 'owner'),
+            ('bowen', 'bowen@example.com', 'hashed122', 'walker'),
+            ('pite', 'pite@example.com', 'hashed133', 'owner');
         `);
       }
 
