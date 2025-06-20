@@ -9,7 +9,7 @@ const db = mysql.createPool({
     database: 'DogWalkService'
   });
 
-// 🔹 第 6 题：/api/dogs
+// 1.6/api/dogs
 app.get('/api/dogs', async (req, res) => {
     try {
       const [rows] = await db.query(`
@@ -25,3 +25,5 @@ app.get('/api/dogs', async (req, res) => {
       res.status(500).json({ error: 'Failed to fetch dogs data' });
     }
   });
+
+// 1.7 
