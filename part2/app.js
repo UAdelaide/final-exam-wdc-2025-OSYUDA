@@ -50,9 +50,7 @@ app.post('/login', (req, res) => {
     // add to direct password comparison, not using hashing
     if (password === user.password_hash) {
         req.session.user = user;
-    } else {
-        return res.send('Incorrect password');
-      }
+
         // add to send user to the correct dashboard based on role
         if (user.role === 'owner') {
             return res.redirect('/owner-dashboard.html');
