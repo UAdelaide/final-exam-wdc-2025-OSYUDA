@@ -23,7 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 
 
 
-// Middleware (unedited)
+// Middleware (no edit)
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
