@@ -108,10 +108,11 @@
           }
         }
 
+        // 
         async function logout() {
           try {
             await fetch('/api/users/logout', { method: 'POST' });
-            window.location.href = '/'; 
+            window.location.href = '/';
           } catch (err) {
             console.error('Logout failed', err);
           }
