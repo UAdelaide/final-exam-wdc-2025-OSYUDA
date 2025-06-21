@@ -31,39 +31,39 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // ✅ 新增：配置 session，用于保存登录状态
 app.use(session({
-    secret: 'mydogsecret', // ← 可以任意设定
-    resave: false,
-    saveUninitialized: true
-  }));
+  secret: 'mydogsecret', // ← 可以任意设定
+  resave: false,
+  saveUninitialized: true
+}));
 
-  // ✅ 新增：处理登录表单提交
-  app.post('/login', (req, res) => {
-    const { username, password } = req.body;
+// ✅ 新增：处理登录表单提交
+app.post('/login', (req, res) => {
+  const { username, password } = req.body;
 
-    const query = 'SELECT * FROM Users WHERE username = ?';
-    db.query(query, [username], (err, results) => {
-      if (err) return res.status(500).send('Database error');
-      if (results.length === 0) return res.send('User not found');
+  const query = 'SELECT * FROM Users WHERE username = ?';
+  db.query(query, [username], (err, results) => {
+    if (err) return res.status(500).send('Database error');
+    if (results.length === 0) return res.send('User not found');
 
-      const user = results[0];
+    const user = results[0];
 
-      // 简单明文密码比对（如果你用的是 bcrypt，可告诉我帮你改）
-      if (password === user.password_hash) {
-        req.session.user = user;
+    // 简单明文密码比对（如果你用的是 bcrypt，可告诉我帮你改）
+    if (password === user.password_hash) {
+      req.session.user = user;
 
-        // 根据用户角色跳转
-        if (user.role === 'owner') {
-          return res.redirect('/owner-dashboard.html');
-        } else if (user.role === 'walker') {
-          return res.redirect('/walker-dashboard.html');
-        } else {
-          return res.send('Unknown role');
-        }
+      // 根据用户角色跳转
+      if (user.role === 'owner') {
+        return res.redirect('/owner-dashboard.html');
+      } else if (user.role === 'walker') {
+        return res.redirect('/walker-dashboard.html');
       } else {
-        return res.send('Incorrect password');
+        return res.send('Unknown role');
       }
-    });
+    } else {
+      return res.send('Incorrect password');
+    }
   });
+});
 
 
 // Routes
