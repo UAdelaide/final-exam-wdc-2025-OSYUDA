@@ -20,10 +20,10 @@ const db = mysql.createConnection({
 
 // add to enable express to handle form submissions
 app.use(express.urlencoded({ extended: true }));
+//
 
 
-
-// Middleware (no edit)
+// Middleware
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
@@ -62,6 +62,8 @@ app.post('/login', (req, res) => {
       }
   });
 });
+//
+
 
 
 // Routes
