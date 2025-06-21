@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// obtain user
+// obtain user's dog
 router.get('/my-dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
@@ -31,7 +31,7 @@ router.get('/my-dogs', async (req, res) => {
     const [dogs] = await db.query('SELECT dog_id, name FROM Dogs WHERE owner_id = ?', [ownerId]);
     res.json(dogs);
   } catch (error) {
-    res.status(500).json({ error: 'Failed to fetch dogs' });
+    res.status(500).json({ error: 'Unable to fetch dogs' });
   }
 });
 
