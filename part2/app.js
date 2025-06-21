@@ -31,7 +31,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 // ✅ 新增：配置 session，用于保存登录状态
 app.use(session({
-  secret: 'mydogsecret', // ← 可以任意设定
+  secret: 'dogsecret', // ← 可以任意设定
   resave: false,
   saveUninitialized: true
 }));
