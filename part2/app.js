@@ -8,7 +8,13 @@ const app = express();
 const mysql = require('mysql2');
 const session = require('express-session');
 
-
+// Add et up MySQL database connection
+const db = mysql.createConnection({
+    host: 'localhost',
+    user: 'root',
+    password: '',
+    database: 'DogWalkService'
+  });
 
 
 
