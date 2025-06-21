@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
 
     const user = results[0];
 
-    // direct password comparison, not using hashing
+    // add to direct password comparison, not using hashing
     if (password === user.password_hash) {
         req.session.user = user;
 
