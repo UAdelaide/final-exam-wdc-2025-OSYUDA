@@ -109,7 +109,15 @@
           }
         }
 
-        
+        async function loadDogs() {
+          try {
+            const res = await fetch('/api/walks/my-dogs');
+            if (!res.ok) throw new Error('Unable to load dogs');
+            dogs.value = await res.json();
+          } catch (err) {
+            console.error(err);
+          }
+        }
 
         // send logout request and redirect to homepage
         async function logout() {
