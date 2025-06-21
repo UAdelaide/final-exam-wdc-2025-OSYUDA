@@ -66,7 +66,7 @@ app.use(session({
   });
 
 
-// Routes
+// Routes未修改部分
 const walkRoutes = require('./routes/walkRoutes');
 const userRoutes = require('./routes/userRoutes');
 
