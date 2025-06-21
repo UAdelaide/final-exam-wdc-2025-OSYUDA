@@ -8,7 +8,7 @@ const app = express();
 const mysql = require('mysql2');
 const session = require('express-session');
 
-//
+//add to set up mysql database connection
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
@@ -16,7 +16,7 @@ const db = mysql.createConnection({
     database: 'DogWalkService'
   });
 
-//add to enable express to handle form submissions
+// add to enable express to handle form submissions
 app.use(express.urlencoded({ extended: true }));
 
 
