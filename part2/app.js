@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
 
     const user = results[0];
 
-    // comparing plain-text password without encryption
+    // direct password comparison, not using hashing
     if (password === user.password_hash) {
         req.session.user = user;
 
