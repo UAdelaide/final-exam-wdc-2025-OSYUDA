@@ -48,6 +48,7 @@
         const username = ref(''); //store the username from the session
         const user = 3;
 
+        //
         async function loadUsername() {
           try {
             const res = await fetch('/api/users/session');
@@ -58,7 +59,7 @@
             console.error(err);
           }
         }
-        
+
         async function loadWalkRequests() {
           try {
             const res = await fetch('/api/walks');
