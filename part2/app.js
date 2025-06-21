@@ -4,6 +4,8 @@ require('dotenv').config();
 
 const app = express();
 
+
+
 // add to import mysql and express-session
 const mysql = require('mysql2');
 const session = require('express-session');
@@ -18,7 +20,6 @@ const db = mysql.createConnection({
 
 // add to enable express to handle form submissions
 app.use(express.urlencoded({ extended: true }));
-
 
 
 
