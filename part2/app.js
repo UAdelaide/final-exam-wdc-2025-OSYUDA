@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
 
     const user = results[0];
 
-    // 简单明文密码比对（如果你用的是 bcrypt，可告诉我帮你改）
+    // compar
     if (password === user.password_hash) {
         req.session.user = user;
 
