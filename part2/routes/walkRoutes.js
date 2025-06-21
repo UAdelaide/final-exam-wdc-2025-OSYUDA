@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// obtain all dogs data from user's dog
+// obtain all dogs data from current user
 router.get('/my-dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
