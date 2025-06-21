@@ -86,15 +86,15 @@
         const username = ref('');
 
         async function loadUsername() {
-  try {
-    const res = await fetch('/api/users/session');
-    if (!res.ok) throw new Error('Failed to fetch user');
-    const user = await res.json();
-    username.value = user.username;
-  } catch (err) {
-    console.error(err);
-  }
-}
+          try {
+            const res = await fetch('/api/users/session');
+            if (!res.ok) throw new Error('Unable to fetch user');
+            const user = await res.json();
+            username.value = user.username;
+          } catch (err) {
+            console.error(err);
+          }
+        }
 
         async function loadWalks() {
           try {
