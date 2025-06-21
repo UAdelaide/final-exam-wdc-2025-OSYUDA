@@ -35,6 +35,7 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
+// 
 router.get('/session', (req, res) => {
   if (req.session && req.session.user) {
     res.json({ username: req.session.user.username });
@@ -42,8 +43,6 @@ router.get('/session', (req, res) => {
     res.status(401).json({ error: 'Not logged in' });
   }
 });
-
-module.exports = router;
 
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
