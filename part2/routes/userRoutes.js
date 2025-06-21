@@ -35,7 +35,7 @@ router.get('/me', (req, res) => {
   res.json(req.session.user);
 });
 
-// 
+// Return the current logged-in user's username from the session
 router.get('/session', (req, res) => {
   if (req.session && req.session.user) {
     res.json({ username: req.session.user.username });
