@@ -104,6 +104,16 @@
           }
         }
 
+        // logout user and return to login page
+        async function logout() {
+          try {
+            await fetch('/api/users/logout', { method: 'POST' });
+            window.location.href = '/';
+          } catch (err) {
+            console.error('Logout failed', err);
+          }
+        }
+
         onMounted(() => {
           loadWalkRequests();
           loadUsername(); // fetch username when page loads
