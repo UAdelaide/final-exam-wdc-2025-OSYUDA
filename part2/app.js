@@ -4,6 +4,7 @@ require('dotenv').config();
 
 const app = express();
 
+// add mysql&
 const mysql = require('mysql2');
 const session = require('express-session');
 
