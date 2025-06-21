@@ -51,7 +51,7 @@ app.post('/login', (req, res) => {
     if (password === user.password_hash) {
         req.session.user = user;
 
-        // Redirect based on user role
+        // add to send user to the correct dashboard based on role
         if (user.role === 'owner') {
             return res.redirect('/owner-dashboard.html');
         }
