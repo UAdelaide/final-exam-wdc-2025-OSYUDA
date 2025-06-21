@@ -36,7 +36,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-// add to login route to 
+// add route to authenticate users 
 app.post('/login', (req, res) => {
   const { username, password } = req.body;
 
