@@ -51,7 +51,7 @@ app.post('/login', (req, res) => {
     if (password === user.password_hash) {
         req.session.user = user;
     } else {
-        return res.send('Incorrect password'); 
+        return res.send('Incorrect password');
       }
         // add to send user to the correct dashboard based on role
         if (user.role === 'owner') {
@@ -63,7 +63,6 @@ app.post('/login', (req, res) => {
         return res.send('Invalid role');
       }
   });
-});
 //
 
 
