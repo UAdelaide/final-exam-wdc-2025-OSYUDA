@@ -70,7 +70,7 @@ footer h4 {
     font-weight: normal;
 }
 
-.post .date 
+.post .date
     float: right;
 }
 
@@ -153,4 +153,9 @@ textarea {
 
 section {
     display: none;
+}
+
+
+input[type="text"], input[type="password"] {
+    background-color: #ffffcc;
 }
