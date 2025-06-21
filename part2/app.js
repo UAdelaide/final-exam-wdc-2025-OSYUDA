@@ -63,6 +63,7 @@ app.post('/login', (req, res) => {
         return res.send('Invalid role');
       }
   });
+});
 //
 
 
