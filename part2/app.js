@@ -43,7 +43,7 @@ app.post('/login', (req, res) => {
   const query = 'SELECT * FROM Users WHERE username = ?';
   db.query(query, [username], (err, results) => {
     if (err) return res.status(500).send('Database error');
-    if (results.length === 0) return res.send('User not found');
+    if (results.length === 0) return res.send('User does not exist');
 
     const user = results[0];
 
