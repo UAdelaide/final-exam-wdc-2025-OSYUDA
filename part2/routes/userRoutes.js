@@ -43,6 +43,8 @@ router.get('/session', (req, res) => {
   }
 });
 
+module.exports = router;
+
 // POST login (dummy version)
 router.post('/login', async (req, res) => {
   const { email, password } = req.body;
