@@ -29,7 +29,7 @@ app.use(express.static(path.join(__dirname, '/public')));
 
 
 
-// ✅ 新增：配置 session，用于保存登录状态
+// add to configure session，用于保存登录状态
 app.use(session({
   secret: 'dogofthedaysecret',
   resave: false,
