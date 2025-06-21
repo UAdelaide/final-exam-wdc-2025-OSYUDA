@@ -8,7 +8,7 @@ const app = express();
 const mysql = require('mysql2');
 const session = require('express-session');
 
-// Add et up MySQL database connection
+// add to set up mysql database connection
 const db = mysql.createConnection({
     host: 'localhost',
     user: 'root',
