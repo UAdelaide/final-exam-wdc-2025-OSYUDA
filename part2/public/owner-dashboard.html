@@ -82,8 +82,19 @@
         const message = ref('');
         const error = ref('');
 
-        // store the logged-in user's name fetched from the session 
+        // store the logged-in user's name fetched from the session
         const username = ref('');
+
+        async function loadUsername() {
+  try {
+    const res = await fetch('/api/users/session');
+    if (!res.ok) throw new Error('Failed to fetch user');
+    const user = await res.json();
+    username.value = user.username;
+  } catch (err) {
+    console.error(err);
+  }
+}
 
         async function loadWalks() {
           try {
