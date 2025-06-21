@@ -58,7 +58,7 @@ app.post('/login', (req, res) => {
         if (user.role === 'walker') {
           return res.redirect('/walker-dashboard.html');
         }
-        return res.send('Unknown role');
+        return res.send('Invalid role');
       }
   });
 });
