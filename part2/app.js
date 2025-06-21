@@ -16,7 +16,8 @@ const db = mysql.createConnection({
     database: 'DogWalkService'
   });
 
-
+// 
+app.use(express.urlencoded({ extended: true }));
 
 
 
