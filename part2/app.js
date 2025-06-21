@@ -47,7 +47,7 @@ app.post('/login', (req, res) => {
 
     const user = results[0];
 
-    // compar
+    // comparing plain-text password 
     if (password === user.password_hash) {
         req.session.user = user;
 
