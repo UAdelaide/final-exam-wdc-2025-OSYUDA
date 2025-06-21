@@ -48,7 +48,7 @@
         const username = ref(''); //store the username from the session
         const user = 3;
 
-        //Fetch the currently logged-in user's username from the server and store it in the `username` variable
+        //Fetch logged-in user's username from the server and store it in the `username` variable
         async function loadUsername() {
           try {
             const res = await fetch('/api/users/session');
