@@ -53,12 +53,12 @@ app.post('/login', (req, res) => {
 
         // Redirect based on user role
         if (user.role === 'owner') {
-          return res.redirect('/owner-dashboard.html');
-        } else if (user.role === 'walker') {
-          return res.redirect('/walker-dashboard.html');
-        } else {
-          return res.send('Unknown role');
-        }
+            return res.redirect('/owner-dashboard.html');
+          } else if (user.role === 'walker') {
+            return res.redirect('/walker-dashboard.html');
+          } else {
+            return res.send('Unknown role');
+          }
       } else {
         return res.send('Incorrect password');
       }
