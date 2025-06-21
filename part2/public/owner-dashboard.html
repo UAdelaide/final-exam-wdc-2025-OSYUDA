@@ -108,6 +108,15 @@
           }
         }
 
+        async function logout() {
+          try {
+            await fetch('/api/users/logout', { method: 'POST' });
+            window.location.href = '/'; 
+          } catch (err) {
+            console.error('Logout failed', err);
+          }
+        }
+
         async function submitWalkRequest() {
           try {
             const res = await fetch('/api/walks', {
