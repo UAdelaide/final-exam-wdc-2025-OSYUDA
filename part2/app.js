@@ -49,19 +49,19 @@ app.post('/login', (req, res) => {
 
     // 简单明文密码比对（如果你用的是 bcrypt，可告诉我帮你改）
     if (password === user.password_hash) {
-      req.session.user = user;
+        req.session.user = user;
 
-      // 根据用户角色跳转
-      if (user.role === 'owner') {
-        return res.redirect('/owner-dashboard.html');
-      } else if (user.role === 'walker') {
-        return res.redirect('/walker-dashboard.html');
+        // Redirect based on user role
+        if (user.role === 'owner') {
+          return res.redirect('/owner-dashboard.html');
+        } else if (user.role === 'walker') {
+          return res.redirect('/walker-dashboard.html');
+        } else {
+          return res.send('Unknown role');
+        }
       } else {
-        return res.send('Unknown role');
+        return res.send('Incorrect password');
       }
-    } else {
-      return res.send('Incorrect password');
-    }
   });
 });
 
