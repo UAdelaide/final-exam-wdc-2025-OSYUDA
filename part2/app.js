@@ -8,7 +8,14 @@ const app = express();
 const mysql = require('mysql2');
 const session = require('express-session');
 
-// Middleware
+
+
+
+
+
+
+
+// Middleware 未修改部分
 app.use(express.json());
 app.use(express.static(path.join(__dirname, '/public')));
 
