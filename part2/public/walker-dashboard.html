@@ -92,6 +92,18 @@
           }
         }
 
+        // fetch the current user's username from the session
+        async function loadUsername() {
+          try {
+            const res = await fetch('/api/users/session');
+            if (!res.ok) throw new Error('Unable to fetch user');
+            const user = await res.json();
+            username.value = user.username;
+          } catch (err) {
+            console.error(err);
+          }
+        }
+
         onMounted(() => {
           loadWalkRequests();
           loadUsername(); // fetch username when page loads
