@@ -19,7 +19,7 @@ router.get('/', async (req, res) => {
   }
 });
 
-// 根据当前 session 用户 ID 获取他所有的狗
+// obtain user
 router.get('/my-dogs', async (req, res) => {
   if (!req.session.user) {
     return res.status(401).json({ error: 'Not logged in' });
